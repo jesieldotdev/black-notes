@@ -1,0 +1,52 @@
+{{>_novanota}}
+
+
+<!-- Card note -->
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-4 ">
+  {{#each notes}}
+  <div class="col">
+    <div class="card h-100">
+      
+      <img
+        src="https://mdbootstrap.com/img/new/standard/city/041.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text">
+          {{note}}
+        </p>
+      </div>
+
+
+
+   
+      <div class='btn-group '
+
+        <!-- Botão Excluir Nota -->
+        <form method="POST" action="/deletar" class="mb-2 mx-auto">
+          <input type="hidden" name="id" value='{{_id}}'>
+           <button type="submit" class="btn btn-danger btn-floating mt-2 " value="" name=""><i class="fas fa-trash"></i></button>
+        </form>
+
+        <!-- Botão Compartilhar Nota -->
+        <form method="POST" action="/share" class="mb-2 mx-auto">
+          <input type="hidden" name="id" value='{{_id}}'>
+           <button type="submit" class="btn btn-success btn-floating mt-2 " value="" name=""><i class="fas fa-share"></i></button>
+        </form>
+      {{>_dropdownmenu}}
+      </div>
+
+
+  </div>
+    </div>
+
+  
+  {{else}}
+  {{/each}}
+
+
+           
+
+           

@@ -1,0 +1,37 @@
+<!-- Criar Nota -->
+<div class="card w-85 mx-auto">
+	<div class="card-body">
+		<div class="mb-1">
+
+      <!-- Buttons trigger collapse -->
+      <a 
+      class="title" 
+
+
+      data-mdb-toggle='collapse'
+      href='#noteEdit'
+      
+      area-expanded='false'
+      aria-controls='noteEdit'
+      >
+        
+              <h5 style="color: black;">Criar uma nota...</h5>
+    
+      </a>
+
+  <!-- Collapsed content -->
+  <div class="collapse mt-3" id="noteEdit">
+    <form action="/salvar_nota" method="POST">
+      <input type="text" class="form-control" id="title" name="title" placeholder="Titulo">
+
+      <textarea class="form-control" id="note" name='note' rows="3" placeholder="Nota..."></textarea>
+
+      <div class="card row">
+        <button type="submit" class="btn btn-dark  mt-2 sm-4 mx-auto" value="" name="">Salvar <i class="fas fa-save"></i></button>
+        <button class="btn btn-dark  mt-2 sm-4 mx-auto" value="" name="">Descartar <i class="fas fa-save"></i></button>
+      </div>
+    </form>
+	</div>
+</div>
+</div>
+</div>

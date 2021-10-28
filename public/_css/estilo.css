@@ -1,0 +1,20 @@
+body{
+	background-color: #282828;
+}
+
+#title{
+	font-weight: bold;
+	border: hidden;
+}
+
+#note{
+	border: none;
+}
+
+textarea{
+	white-space: pre-wrap;
+}
+
+input: , textarea{
+	
+}
