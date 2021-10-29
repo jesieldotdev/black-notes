@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 const Note = mongoose.model('notes')
 const session = require('express-session')
 const flash = require('connect-flash')
+const db = require('./config/db')
 
 
 //	Configurações
@@ -27,7 +28,7 @@ const flash = require('connect-flash')
 		app.use(express.static(path.join(__dirname, 'public')))
 
 	//	Mongoose
-	mongoose.connect('mongodb://localhost/todoapp').then(() => {
+	mongoose.connect(db.mongoURI).then(() => {
 		console.log('MONGODB Conectado.')
 	}).catch((err) => {
 		console.log('Erro ao tentar se conectar ao MONGODB: '+err)
