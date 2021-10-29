@@ -28,7 +28,7 @@ const db = require('./config/db')
 		app.use(express.static(path.join(__dirname, 'public')))
 
 	//	Mongoose
-	mongoose.connect(db.mongoURI).then(() => {
+	mongoose.connect('mongodb+srv://jesiel364:12458917@jesieldb.twzzt.mongodb.net/todoapp?retryWrites=true&w=majority').then(() => {
 		console.log('MONGODB Conectado.')
 	}).catch((err) => {
 		console.log('Erro ao tentar se conectar ao MONGODB: '+err)
