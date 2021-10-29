@@ -18,5 +18,5 @@
     "nodemon": "^2.0.14"
   },
   "devDependencies": {},
-  "description": "'Um Simples App de Notas'"
+  "description": "Um Simples App de Notas"
 }
