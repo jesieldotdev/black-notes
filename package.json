@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "jesiel364",
   "license": "ISC",
   "dependencies": {
     "connect-flash": "^0.1.1",
@@ -18,5 +18,5 @@
     "nodemon": "^2.0.14"
   },
   "devDependencies": {},
-  "description": ""
+  "description": "'Um Simples App de Notas'"
 }
