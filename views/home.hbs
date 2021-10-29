@@ -27,13 +27,13 @@
         <!-- Botão Excluir Nota -->
         <form method="POST" action="/deletar" class="mb-2 mx-auto">
           <input type="hidden" name="id" value='{{_id}}'>
-           <button type="submit" class="btn btn-danger btn-floating mt-2 " value="" name=""><i class="fas fa-trash"></i></button>
+           <button type="submit" class="btn btn-dark btn-floating mt-2 " value="" name=""><i class="fas fa-trash"></i></button>
         </form>
 
         <!-- Botão Compartilhar Nota -->
         <form method="POST" action="/share" class="mb-2 mx-auto">
           <input type="hidden" name="id" value='{{_id}}'>
-           <button type="submit" class="btn btn-success btn-floating mt-2 " value="" name=""><i class="fas fa-share"></i></button>
+           <button type="submit" class="btn btn-dark btn-floating mt-2 " value="" name=""><i class="fas fa-share"></i></button>
         </form>
       {{>_dropdownmenu}}
       </div>
