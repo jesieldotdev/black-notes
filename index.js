@@ -62,11 +62,11 @@ app.use((req, res, next) => {
 // Salvar Nota
 	app.post('/salvar_nota', (req, res) => {
 		// Tratamento de Entradas
-		// if(req.body.img_link == undefined || req.body.img_link == ''){
-		// 	var img = 'https://source.unsplash.com/collection/190727/1600x900'
-		// }else {
+		if(req.body.img_link == undefined || req.body.img_link == ''){
+			var img = 'https://source.unsplash.com/collection/190727/1600x900'
+		}else {
 		 	var img = req.body.img_link
-		//s }
+		}
 
 
 		const novaNota = {
