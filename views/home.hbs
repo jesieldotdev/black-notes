@@ -2,19 +2,15 @@
 
 
 <!-- Card note -->
-<div class="row row-cols-1 row-cols-md-3 g-4 mt-4 ">
+<div id="card-note" class="row row-cols-1 row-cols-md-3 g-4 mt-4 shadow-lg rounded">
   {{#each notes}}
   <div class="col">
-    <div class="card h-100">
+    <div class="card bg-dark h-100">
       
-      <img
-        src="https://mdbootstrap.com/img/new/standard/city/041.jpg"
-        class="card-img-top"
-        alt="..."
-      />
+      <img src="{{img_link}}" class="card-img-top" alt="..."/>
       <div class="card-body">
-        <h5 class="card-title">{{title}}</h5>
-        <p class="card-text">
+        <h5 style="color: white;" class="card-title">{{title}}</h5>
+        <p style="color: white;" class="card-text">
           {{note}}
         </p>
       </div>

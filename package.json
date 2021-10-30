@@ -18,5 +18,13 @@
     "nodemon": "^2.0.14"
   },
   "devDependencies": {},
-  "description": "Um Simples App de Notas"
+  "description": "Um Simples App de Notas",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jesiel364/todo-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jesiel364/todo-app/issues"
+  },
+  "homepage": "https://github.com/jesiel364/todo-app#readme"
 }

@@ -9,6 +9,11 @@ const Note = new Schema({
 	note: {
 		type: String,
 		required: true
+	},
+	img_link: {
+		type: String,
+		required: false,
+		default: "https://source.unsplash.com/collection/2250268/1600x900"
 	}
 })
 

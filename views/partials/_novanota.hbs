@@ -1,5 +1,5 @@
 <!-- Criar Nota -->
-<div class="card w-75 mx-auto">
+<div id="novaNota" class="card w-75 mx-auto shadow p-3 bg-white rounded">
 	<div class="card-body">
 		<div class="mb-1">
 
@@ -11,20 +11,55 @@
       
       >
         
-              <h5 style="color: grey;">Criar uma nota</h5>
+              <h5 style="color: grey;"><i style='color: grey;' class="fas fa-plus fa-2x"> </i> Criar uma nota</h5>
     
       </a>
 
   <!-- Collapsed content -->
   <div class="collapse mt-3" id="noteEdit">
     <form action="/salvar_nota" method="POST">
-      <input type="text" class="form-control" id="title" name="title" placeholder="Titulo">
+      <input type="text" class="form-control shadow-lg rounded" id="title" name="title" placeholder="Titulo">
 
-      <textarea class="form-control mt-1 mb-2" id="note" name='note' rows="3" placeholder="Nota..."></textarea>
+      <textarea class="form-control mt-1 mb-2 shadow-lg rounded mt-2" id="note" name='note' rows="3" placeholder="Nota..."></textarea>
 
-      <div class="card row">
-        <button type="submit" class="btn btn-dark  mt-2 sm-4 mx-auto" value="" name="">Salvar <i class="fas fa-save"></i></button>
-        <button class="btn btn-dark  mt-2 sm-4 mx-auto" value="" name="">Descartar <i class="fas fa-save"></i></button>
+      <!-- Adicionar Capa -->
+    <!-- Botão gatilho collapse -->
+        <div class="card bg-secondary p-2">
+          <div class="card-body">
+            <div class="d-inline">
+              <a class='mb-2' style="text-decoration: none;" 
+                data-bs-toggle="collapse" data-bs-target="#addCapa" aria-controls="addCapa" aria-expanded="false"
+                aria-label="Toggle navigation">
+                
+                <div><span style="color: white;" class="fas fa-image fa-2x"></span> <strong class="card-title" style='color: white;'>
+                  Adicionar Capa</strong></div>
+
+                <div class="d-flex flex-row-reverse bd-highlight"><i style='color: white;' class="fas fa-chevron-circle-down fa-2x"></i>
+                </div>
+              
+            
+              </a>
+            </div>
+
+
+          <!-- Collapsed content -->
+          <div class="collapse mt-3" id="addCapa">
+            <!-- Capa File -->
+              <!-- <div class="mb-3">
+                <input class="form-control form-control-sm" id="img_file" name="img_file" type="file">
+              </div> -->
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon3"><i  class="fas fa-link"> </i> Link</span>
+                <input type="text" class="form-control" id="imglink" name="img_link" aria-describedby="basic-addon3">
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ml-5">
+        <button type="submit" class="btn btn-dark  mt-2 sm-4 mx-auto " value="" name="">Salvar <!-- <i class="fas fa-save"></i> --></button>
+        <button class="btn btn-dark  mt-2 sm-4 mx-auto" value="" name="">Descartar <!-- <i class="fas fa-trash"></i> --></button>
       </div>
     </form>
 	</div>

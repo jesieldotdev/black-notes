@@ -61,12 +61,22 @@ app.use((req, res, next) => {
 
 // Salvar Nota
 	app.post('/salvar_nota', (req, res) => {
+		// Tratamento de Entradas
+		// if(req.body.img_link == undefined || req.body.img_link == ''){
+		// 	var img = 'https://source.unsplash.com/collection/190727/1600x900'
+		// }else {
+		 	var img = req.body.img_link
+		// }
+
+
 		const novaNota = {
 			title: req.body.title,
-			note: req.body.note
+			note: req.body.note,
+			img_link: img
 		}
-		console.log(novaNota.titulo)
-		
+		console.log(img)
+
+		// Salvando dados no Mongo
 		new Note(novaNota).save().then(() => {
 			req.flash('success_msg', `Nota Salva com Sucesso!`)
 			res.redirect('/')
