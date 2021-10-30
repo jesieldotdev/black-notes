@@ -66,7 +66,7 @@ app.use((req, res, next) => {
 		// 	var img = 'https://source.unsplash.com/collection/190727/1600x900'
 		// }else {
 		 	var img = req.body.img_link
-		// }
+		//s }
 
 
 		const novaNota = {
