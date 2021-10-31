@@ -70,7 +70,7 @@ app.use((req, res, next) => {
 
 
 		const novaNota = {
-			title: req.body.title,
+			title: req.body.note_title,
 			note: req.body.note,
 			img_link: img
 		}

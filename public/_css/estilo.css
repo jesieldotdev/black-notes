@@ -21,7 +21,7 @@ body{
 	border: hidden;
 }
 
-#note, #title{
+#note, #note_title{
 	border: none;
 }
 
@@ -51,6 +51,8 @@ input: , textarea{
 #description{
 	line-break: auto;
 	white-space: pre-line;
+	font: 16pt 'Abel', Arial, sans-serif;
+	
 }
 
 #capa{
@@ -64,4 +66,9 @@ input: , textarea{
 
 #pai{
 	max-width: 75%;
+}
+
+#note-title{
+	font-family: 'kanit', sans-serif;
+	font-size: 18pt;
 }
