@@ -2,12 +2,13 @@ body{
 	/*background-color: #282828;*/
 	background-repeat: no-repeat;
   	background-position: top;
-  	background-size: 100%;
+  	/*background-size: 100%;*/
+  	background-attachment: fixed;
 
   background:
         /* top, transparent black, faked with gradient */ 
         linear-gradient(
-          rgba(0, 0, 0, 0.7), 
+          rgba(0, 0, 0, 0.8), 
           rgba(1, 0, 0, 0.7)
         ),
         /* bottom, image */
@@ -34,10 +35,10 @@ input: , textarea{
 
 
 
-#novaNota{
+/*#novaNota{
 	max-width: 75%;
 	min-width: 20rem;
-}
+}*/
 
 #container{
 
@@ -45,4 +46,22 @@ input: , textarea{
 
 #menu{
 	border: none;
+}
+
+#description{
+	line-break: auto;
+	white-space: pre-line;
+}
+
+#capa{
+	max-height: 20rem;
+}
+
+#novaNota{
+	padding: 0;
+
+}
+
+#pai{
+	max-width: 75%;
 }

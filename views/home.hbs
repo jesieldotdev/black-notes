@@ -5,32 +5,33 @@
 <div id="card-note" class="row row-cols-1 row-cols-md-3 g-4 mt-4 shadow-lg rounded">
   {{#each notes}}
   <div class="col">
-    <div class="card bg-dark h-100">
+    <div class="card bg-dark ">
       
-      <img src="{{img_link}}" class="card-img-top" alt="..."/>
+      <img id="capa" src="{{img_link}}" class="card-img-top" alt="..."/>
       <div class="card-body">
         <h5 style="color: white;" class="card-title">{{title}}</h5>
-        <p style="color: white;" class="card-text">
+        <p  id="description" style="color: white;" class="card-text">
           {{note}}
         </p>
       </div>
 
 
 
-   
-      <div class='btn-group '
+    <!-- Buttons Group -->
+      <div class='d-inline-flex'>
+
+        <!-- Botão Compartilhar Nota -->
+        <form method="POST" action="/share" class="mx-auto ">
+          <input type="hidden" name="id" value='{{_id}}'>
+           <button type="submit" class="btn btn-dark btn-floating mt-2 " value="" name=""><i class="fas fa-share"></i></button>
+        </form>
 
         <!-- Botão Excluir Nota -->
-        <form method="POST" action="/deletar" class="mb-2 mx-auto">
+        <form method="POST" action="/deletar" class=" mx-auto">
           <input type="hidden" name="id" value='{{_id}}'>
            <button type="submit" class="btn btn-dark btn-floating mt-2 " value="" name=""><i class="fas fa-trash"></i></button>
         </form>
 
-        <!-- Botão Compartilhar Nota -->
-        <form method="POST" action="/share" class="mb-2 mx-auto">
-          <input type="hidden" name="id" value='{{_id}}'>
-           <button type="submit" class="btn btn-dark btn-floating mt-2 " value="" name=""><i class="fas fa-share"></i></button>
-        </form>
       {{>_dropdownmenu}}
       </div>
 
@@ -38,9 +39,11 @@
   </div>
     </div>
 
-  
   {{else}}
   {{/each}}
+
+</div>
+  {{>_footer}}
 
 
            

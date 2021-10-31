@@ -63,7 +63,7 @@ app.use((req, res, next) => {
 	app.post('/salvar_nota', (req, res) => {
 		// Tratamento de Entradas
 		if(req.body.img_link == undefined || req.body.img_link == ''){
-			var img = 'https://source.unsplash.com/collection/2250268/1600x900'
+			var img = 'https://source.unsplash.com/collection/2250268/600x600'
 		}else {
 		 	var img = req.body.img_link
 		}
