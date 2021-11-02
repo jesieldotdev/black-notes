@@ -5,14 +5,15 @@
 <div id="card-note" class="row row-cols-1 row-cols-md-3 g-4 mt-4 shadow-lg rounded">
   {{#each notes}}
   <div class="col">
-    <div class="card bg-dark ">
+    <div class="card bg-dark text-light">
       
-      <img id="capa" src="{{img_link}}" class="card-img-top" alt="..."/>
+      <a href="/note/{{_id}}"><img id="capa" src="{{img_link}}" class="card-img-top" alt="..."/></a>
       <div class="card-body">
-        <h4 id="note-title" style="color: white;" class="card-title">{{title}}</h4>
-        <p id="description" style="color: white;" class="card-text">
+        <h4 id="note-title" class="card-title">{{title}}</h4>
+        <p id="description" class="card-text">
           {{note}}
         </p>
+        <small>Data de criação: {{date}}</small>
       </div>
 
 
@@ -21,16 +22,16 @@
       <div class='d-inline-flex'>
 
         <!-- Botão Compartilhar Nota -->
-        <form method="POST" action="/share" class="mx-auto ">
+        <!-- {{!-- <form method="POST" action="/note" class="mx-auto "> --}}
           <input type="hidden" name="id" value='{{_id}}'>
-           <button type="submit" class="btn btn-dark btn-floating mt-2 " value="" name=""><i class="fas fa-share"></i></button>
-        </form>
+           <a href="note/{{_id}}"><button class="btn btn-dark btn-floating mt-2 " value="" name=""><i class="fas fa-share"></i></button></a>
+        {{!-- </form> --}} -->
 
         <!-- Botão Excluir Nota -->
-        <form method="POST" action="/deletar" class=" mx-auto">
+        <!-- <form method="POST" action="/deletar" class=" mx-auto">
           <input type="hidden" name="id" value='{{_id}}'>
            <button type="submit" class="btn btn-dark btn-floating mt-2 " value="" name=""><i class="fas fa-trash"></i></button>
-        </form>
+        </form> -->
 
       {{>_dropdownmenu}}
       </div>

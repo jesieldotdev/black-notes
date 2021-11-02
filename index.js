@@ -63,7 +63,7 @@ app.use((req, res, next) => {
 	app.post('/salvar_nota', (req, res) => {
 		// Tratamento de Entradas
 		if(req.body.img_link == undefined || req.body.img_link == ''){
-			var img = 'https://source.unsplash.com/collection/2250268/600x600'
+			var img = 'https://source.unsplash.com/collection/2250268/800x900'
 		}else {
 		 	var img = req.body.img_link
 		}
@@ -93,6 +93,16 @@ app.use((req, res, next) => {
 			res.redirect('/')
 		}).catch((err) => {
 			req.flash('error_msg', 'Não foi possivel apagar a nota.')
+			res.redirect('/')
+		})
+	})
+
+// Rota Note Page
+	app.get('/note/:id', (req, res) => {
+		Note.findOne({_id: req.params.id}).lean().then((note) => {
+			res.render('notepage', {note: note})
+		}).catch((err) => {
+			req.flash('error_msg', 'Erro ao abrir a nota: ' +err)
 			res.redirect('/')
 		})
 	})

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+
 const Note = new Schema({
 	title: {
 		type: String,
@@ -13,7 +14,11 @@ const Note = new Schema({
 	img_link: {
 		type: String,
 		required: false,
-		default: "https://source.unsplash.com/collection/2250268/600x600"
+		default: "https://source.unsplash.com/collection/2250268/800x900"
+	},
+	date: {
+		type: Date,
+		default: Date()
 	}
 })
 
