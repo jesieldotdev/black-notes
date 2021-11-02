@@ -10,13 +10,15 @@
   </button>
 
   <ul class="dropdown-menu">
-          
-            <input type="hidden" name="id" value='{{_id}}'>
-    <button type="hidden" class="btn" type="submit"><li><a class="dropdown-item" href="/deletar">Excluir</a></li></button>
-      </form><br>
-    <button type="hidden" class="btn" type="submit"><li><a class="dropdown-item" href="/edit/{{_id}}">Editar</a></li></button>
+    
+    <!-- Botão Excluir Nota -->
+        <form method="POST" action="/deletar" class=" mx-auto">
+          <input type="hidden" name="id" value='{{_id}}'>
+           <button type="submit" class="btn btn-block" value="" name="">Excluir</button>
+        </form>
+    
+    <li><a class="dropdown-item" href="/edit/{{_id}}">Editar</a></li>
     <li><hr class="dropdown-divider" /></li>
     <li><a class="dropdown-item" href="#">Compartilhar</a></li>
-  
   </ul>
 </form>

@@ -1,16 +1,21 @@
-<!-- Pagination -->
-<nav aria-label="...">
-  <ul class="pagination pagination-sm">
-    <li class="page-item" aria-current="page">
-      <span class="page-link"><a class="text-decoration-none" href="/">Notas</a></span>
-    </li> / 
-    <li class="page-item"><a class="page-link" href="#">editar</a></li> / 
-    <li class="page-item"><a class="page-link" href="#">{{note.title}}</a></li>
-  </ul>
-</nav>
+
 
 <div id="pai" class="card w-75 mx-auto shadow p-3 bg-white rounded">
 	<div id="novaNota" class="card-body">
+
+          <!-- Pagination -->
+<nav aria-label="...">
+  <ul class="pagination pagination-sm ">
+    <li class="page-item" aria-current="page">
+      <span class=""><a class="text-decoration-none mx-2" href="/">Inicio</a> » </span>
+    </li> 
+    <li class="page-item" aria-current="page">
+      <span class=""><a class="text-decoration-none mx-2" href="/">Notas</a> » </span>
+    </li> 
+    <li class=""><a class="text-decoration-none mx-2" href="#">{{note.title}}</a></li>
+  </ul>
+</nav>
+
 		<div class="mb-1">
 
       <!-- Buttons trigger collapse -->
@@ -32,6 +37,7 @@
                 
                 <div><span style="color: white;" class="fas fa-image fa-2x"></span> <strong class="card-title" style='color: white;'>
                   Capa</strong></div>
+                  <img id="img-edit" style="" src="{{note.img_link}}" class="card-img-top mx-auto mt-4 mb-2" alt="..."/>
 
                 <div class="d-flex flex-row-reverse bd-highlight">
                 </div>

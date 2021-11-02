@@ -17,7 +17,7 @@ const Note = new Schema({
 		default: "https://source.unsplash.com/collection/2250268/800x900"
 	},
 	date: {
-		type: Date,
+		type: String,
 		default: Date()
 	}
 })

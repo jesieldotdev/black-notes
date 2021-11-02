@@ -44,15 +44,113 @@
     <!-- Custom Stylesheet -->
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 
-</head>
-<body style="background:
+    <style type="text/css">
+        body{
+    height: 100%;
+    background-color: #282828;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100%;
+    /*background-attachment: fixed;*/
+
+  background:
          /*top, transparent black, faked with gradient  */
         linear-gradient(
           rgba(0, 0, 0, 0.8), 
           rgba(1, 0, 0, 0.7)
         ),
          /*bottom, image */
-        url(https://source.unsplash.com/collection/2250268/1600x900);">
+        url(https://source.unsplash.com/collection/2250268/1600x900);
+    }
+
+/*body::before {
+  background: url(https://source.unsplash.com/collection/2250268/1600x900) no-repeat center center fixed;
+  content: '';
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position:absolute; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}*/
+
+
+
+#title{
+    font-weight: bold;
+    border: hidden;
+}
+
+#note, #note_title{
+    border: none;
+}
+
+textarea{
+    white-space: pre-wrap;
+}
+
+input: , textarea{
+    
+}
+
+
+
+/*#novaNota{
+    max-width: 75%;
+    min-width: 20rem;
+}*/
+
+#container{
+
+}
+
+#menu{
+    border: none;
+}
+
+#description{
+    line-break: auto;
+    white-space: pre-line;
+    font: 16pt 'Abel', Arial, sans-serif;
+    
+}
+
+#capa{
+    max-height: 30%;
+}
+
+#page_img{
+    min-width: 16rem;
+    max-width: 60%;
+}
+
+#novaNota{
+    padding: 0;
+
+}
+
+#pai{
+    min-width: 20rem;
+    max-width: 75%;
+}
+
+#note-title{
+    font-family: 'kanit', sans-serif;
+    font-size: 18pt;
+}
+
+
+    </style>
+
+</head>
+<body>
 
 {{>_nav}}
 
@@ -61,10 +159,10 @@
 <div id="container" class="container mt-4">
     {{{body}}}
    
-
+ 
 </div>
+{{>_footer}}
 
- {{>_footer}}
 </body>
  <!-- BS4 -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>

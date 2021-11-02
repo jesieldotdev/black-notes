@@ -1,24 +1,46 @@
-<!-- Pagination -->
+
+
+<!-- Card note -->
+<div  class="  mt-4 shadow-lg rounded">
+    <div id="card-note"  class="card bg-dark text-light">
+      
+      <!-- Pagination -->
 <nav aria-label="...">
-  <ul class="pagination pagination-sm">
+  <ul class="pagination pagination-sm ">
     <li class="page-item" aria-current="page">
-      <span class="page-link"><a class="text-decoration-none" href="/">notas</a></span>
-    </li> / 
-    <li class="page-item"><a class="page-link" href="#">{{note.title}}</a></li>
+      <span class=""><a class="text-decoration-none mx-2" href="/">Inicio</a> » </span>
+    </li> 
+    <li class="page-item" aria-current="page">
+      <span class=""><a class="text-decoration-none mx-2" href="/">Notas</a> » </span>
+    </li> 
+    <li class=""><a class="text-decoration-none mx-2" href="#">{{note.title}}</a></li>
   </ul>
 </nav>
 
-<!-- Card note -->
-<div id="card-note" class="  mt-4 shadow-lg rounded">
-    <div class="card bg-dark text-light">
+
       
-      <img style="width: 60%" id="page_img" src="{{note.img_link}}" class="card-img-top mx-auto mt-4 mb-2" alt="..."/>
+      <img id="page_img" src="{{note.img_link}}" class="card-img-top mx-auto mt-4 mb-2" alt="..."/>
       <div class="card-body">
         <h4 id="note-title" class="card-title mx-auto">{{note.title}}</h4>
         <p style="white-space: pre-line;" id="description" class="card-text">
           {{note.note}}
         </p>
-        <small>Data de criação: {{note.date}}</small>
+        
+
+        {{!-- Descrição --}}
+
+<div class="d-inline-flex">
+        {{!-- Logo de usuário --}}
+        <a class=" d-flex align-items-center hidden-arrow " href="#" id=""role="button">
+        
+        <img src="https://lh3.googleusercontent.com/ogw/ADea4I4Yn3_jU-L3L2d2cihQmv7GY_RPPKfWoqDNiKWjNA=s32-c-mo" class="rounded-circle mx-2" height="40" alt=""
+        />
+      </a>
+
+        <small>
+          <span>Por <span id="flipboard-author author-single" class="author"><a href="#" title="Posts de Pedro Knoth" rel="author">Administrator</a></span><br>{{note.date}}</span></small>
+
+</div>
       </div>
       </div>
   </div>

@@ -69,27 +69,79 @@ app.use((req, res, next) => {
 		 	var img = req.body.img_link
 		}
 
+		// Hora
+		function time(){
+			var agora = new Date()
+			var hora = agora.getHours()
+			var min = agora.getMinutes()
+			var s = agora.getSeconds()
+			var clock = {}
+			
+			if (hora  <= 9){
+				clock.textContent = `0${hora}:${min}:${s}`
+				if (min <= 9){
+					clock.textContent = `0${hora}:0${min}`}
+					
+			}else {clock.textContent = `${hora}:0${min}`
+			if (min <= 9){
+					clock.textContent = `${hora}:0${min}`
+				}else{
+					clock.textContent = `${hora}:${min}`
+				}
+			}
+			return clock.textContent
+		}
+
+		setInterval(time, 1000)
+
+		// console.log(time())
+
+		// Data
+		var agora = new Date()
+		var dia = agora.getDate()
+		var mes = agora.getMonth()
+		var ano = agora.getFullYear()
+		
+
+		if (dia <= 9){
+			dia = '0'+ dia
+		}
+		
+		if(mes <= 9){
+			mes = '0' +mes
+		}
+		
+
+		var dataText = `${dia}/${mes}/${ano}`
+		// console.log(dataText)
+
+		let datahora = `${dataText} às ${time()}`
+		console.log(datahora)
+		
+
 
 		const novaNota = {
 			title: req.body.note_title,
 			note: req.body.note,
-			img_link: img
+			img_link: img,
+			date: datahora
 		}
-		console.log(img)
+		// console.log(img)
 
 		// Salvando dados no Mongo
 		new Note(novaNota).save().then(() => {
 			req.flash('success_msg', `Nota Salva com Sucesso!`)
 			res.redirect('/')
 		}).catch((err) => {
-			req.flash('error_msg', `Houve um erro ao salvar a nota!`)
+			req.flash('error_msg', `Houve um erro ao salvar a nota! : ` +err)
 			res.redirect('/')
 		})
 	})
 
 //	Apagar Nota
-	app.post('/deletar', (req, res) => {
-		Note.deleteOne({_id: req.body.id}).then(() => {
+	app.all('/deletar', (req, res) => {
+		Note.deleteOne({_id: req.body.id}).then((nota) => {
+			console.log(nota.title)
 			req.flash('success_msg', 'Nota deletada.')
 			res.redirect('/')
 		}).catch((err) => {
