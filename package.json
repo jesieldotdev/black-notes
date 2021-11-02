@@ -17,7 +17,6 @@
     "mongoose": "^6.0.12",
     "nodemon": "^2.0.14"
   },
-  "devDependencies": {},
   "description": "Um Simples App de Notas",
   "repository": {
     "type": "git",

@@ -25,7 +25,8 @@ const db = require('./config/db')
 	app.set('view engine', 'hbs')
 
 	// Public
-		app.use(express.static(path.join(__dirname, 'public')))
+		app.use(express.static(path.join(__dirname, '/public')))
+		app.use(express.static(path.join(__dirname, '/views')))
 
 	//	Mongoose
 	mongoose.connect('mongodb+srv://jesiel364:12458917@jesieldb.twzzt.mongodb.net/todoapp?retryWrites=true&w=majority').then(() => {
@@ -113,12 +114,36 @@ app.use((req, res, next) => {
 		res.render('login')
 	})
 
-// Editar Nota
-	app.get('/editar/nota/:id', (req, res) => {
-		Note.findOne({_id: req.params.id}).lean().then((nota) => {
-			res.render('note-edit', {nota: nota})
+// Page Editar Nota
+	app.get('/edit/:id', (req, res) => {
+		Note.findOne({_id: req.params.id}).lean().then((note) => {
+			res.render('note-edit', {note: note})
 		}).catch((err) => {
 			res.flash('error_msg', 'Algo deu errado!')
+		})
+	})
+
+//	Rota de Edição Nota
+	app.post('/notas/editar', (req, res) => {
+		Note.findOne({_id: req.body.id}).lean().then((note) => {
+
+			const editarNota = {
+			title: req.body.note_title,
+			note: req.body.note,
+			img_link: req.body.img_link
+		}
+
+			new Note(editarNota).save().then(() => {
+				req.flash('success_msg', 'Nota editada com sucesso')
+				res.redirect('/')
+			}).catch((err) => {
+				req.flash('error_msg', 'Não foi possivel salvar a edição: ' +err)
+				res.redirect('/')
+			})
+
+		}).catch((err) => {
+			req.flash('error_msg', 'Houve um erro ao editar a nota: ' +err)
+			res.redirect('/')
 		})
 	})
 

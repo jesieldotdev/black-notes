@@ -1,19 +1,19 @@
 body{
 	background-color: #282828;
-	/*background-repeat: no-repeat;
+	background-repeat: no-repeat;
   	background-position: top;
-  	/*background-size: 100%;*/
-  	background-attachment: fixed;*/
+  	background-size: 100%;
+  	/*background-attachment: fixed;*/
 
- /* background:*/
-        /* top, transparent black, faked with gradient */ 
-        /*linear-gradient(
+  background:
+         /*top, transparent black, faked with gradient  */
+        linear-gradient(
           rgba(0, 0, 0, 0.8), 
           rgba(1, 0, 0, 0.7)
-        ),*/
-        /* bottom, image */
-/*        url("https://source.unsplash.com/collection/2250268/1600x900");
-*/    }
+        ),
+         /*bottom, image */
+        url("https://source.unsplash.com/collection/2250268/1600x900");
+    }
 }
 
 #title{

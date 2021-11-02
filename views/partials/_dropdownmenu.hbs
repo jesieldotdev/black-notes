@@ -1,5 +1,5 @@
 <!-- Dropdown menu -->
-  <form class="  mx-auto">
+  <form class="  justify-content-end">
   <button
     type="button"
     class="btn text-light btn-floating mt-2"
@@ -8,12 +8,15 @@
   >
     <i class="fas fa-ellipsis-v"></i>
   </button>
+
   <ul class="dropdown-menu">
           
-    <li><a class="dropdown-item" type="submit" href="/deletar">Excluir</a></li>
-    <li><a class="dropdown-item" href="/e">Adicionar Marcador</a></li>
+            <input type="hidden" name="id" value='{{_id}}'>
+    <button type="hidden" class="btn" type="submit"><li><a class="dropdown-item" href="/deletar">Excluir</a></li></button>
+      </form><br>
+    <button type="hidden" class="btn" type="submit"><li><a class="dropdown-item" href="/edit/{{_id}}">Editar</a></li></button>
     <li><hr class="dropdown-divider" /></li>
     <li><a class="dropdown-item" href="#">Compartilhar</a></li>
-  </form>
+  
   </ul>
 </form>

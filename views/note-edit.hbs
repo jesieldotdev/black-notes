@@ -1,3 +1,67 @@
-<h2>
-		{{nota}}
-	</h2>
+<!-- Pagination -->
+<nav aria-label="...">
+  <ul class="pagination pagination-sm">
+    <li class="page-item" aria-current="page">
+      <span class="page-link"><a class="text-decoration-none" href="/">Notas</a></span>
+    </li> / 
+    <li class="page-item"><a class="page-link" href="#">editar</a></li> / 
+    <li class="page-item"><a class="page-link" href="#">{{note.title}}</a></li>
+  </ul>
+</nav>
+
+<div id="pai" class="card w-75 mx-auto shadow p-3 bg-white rounded">
+	<div id="novaNota" class="card-body">
+		<div class="mb-1">
+
+      <!-- Buttons trigger collapse -->
+      
+  <!-- Collapsed content -->
+  <div class="" id="noteEdit">
+    <form action="/notas/editar" method="POST">
+    	<input type="hidden" id="id" value="{{note._id}}">
+      <input type="text" class="form-control shadow-lg rounded" id="note_title" name="note_title"  placeholder="Título" value="{{note.title}}">
+
+      <textarea cols="40" rows="5" class="form-control mt-1 mb-2 shadow-lg rounded mt-2" id="note" name='note' rows="3"  placeholder="{{note.note}}">{{note.note}}</textarea>
+
+      <!-- Adicionar Capa -->
+    <!-- Botão gatilho collapse -->
+        <div class="card bg-secondary p-2 shadow-lg rounded">
+          <div class="card-body">
+            <div class="d-inline">
+              
+                
+                <div><span style="color: white;" class="fas fa-image fa-2x"></span> <strong class="card-title" style='color: white;'>
+                  Capa</strong></div>
+
+                <div class="d-flex flex-row-reverse bd-highlight">
+                </div>
+              
+            
+              
+            </div>
+
+
+          <!-- Collapsed content -->
+          <div class=" mt-3" id="addCapa">
+            <!-- Capa File -->
+              <!-- <div class="mb-3">
+                <input class="form-control form-control-sm" id="img_file" name="img_file" type="file">
+              </div> -->
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon3"><i  class="fas fa-link"> </i> Link</span>
+                <input type="text" class="form-control" id="imglink" name="img_link" value="{{note.img_link}}" aria-describedby="basic-addon3">
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ml-5">
+        <button type="submit" class="btn btn-dark  mt-2 sm-4 mx-auto shadow-lg rounded" value="" name="">Salvar <!-- <i class="fas fa-save"></i> --></button>
+        <button class="btn btn-dark  mt-2 sm-4 mx-auto shadow-lg rounded" value="" name="">Descartar <!-- <i class="fas fa-trash"></i> --></button>
+      </div>
+    </form>
+	</div>
+</div>
+</div>
+</div>

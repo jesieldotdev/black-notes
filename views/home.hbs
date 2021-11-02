@@ -2,10 +2,11 @@
 
 
 <!-- Card note -->
+<form action="/deletar" method="POST">
 <div id="card-note" class="row row-cols-1 row-cols-md-3 g-4 mt-4 shadow-lg rounded">
   {{#each notes}}
   <div class="col">
-    <div class="card bg-dark text-light">
+    <div name="id" class="card bg-dark text-light">
       
       <a href="/note/{{_id}}"><img id="capa" src="{{img_link}}" class="card-img-top" alt="..."/></a>
       <div class="card-body">
@@ -19,7 +20,7 @@
 
 
     <!-- Buttons Group -->
-      <div class='d-inline-flex'>
+      <div class=''>
 
         <!-- Botão Compartilhar Nota -->
         <!-- {{!-- <form method="POST" action="/note" class="mx-auto "> --}}
@@ -34,6 +35,7 @@
         </form> -->
 
       {{>_dropdownmenu}}
+      </form>
       </div>
 
 
