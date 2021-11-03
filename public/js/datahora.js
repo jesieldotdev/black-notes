@@ -45,4 +45,6 @@
 		// console.log(dataText)
 
 		let datahora = `${dataText} às ${time()}`
-		console.log(datahora)
+
+
+module.exports = datahora

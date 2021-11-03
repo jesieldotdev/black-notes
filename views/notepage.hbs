@@ -2,11 +2,11 @@
 
 <!-- Card note -->
 <div  class="  mt-4 shadow-lg rounded">
-    <div id="card-note"  class="card bg-dark text-light">
+    <div style="background-color: #282828;" id="card-note"  class="card  text-light mx-auto">
       
       <!-- Pagination -->
-<nav aria-label="...">
-  <ul class="pagination pagination-sm ">
+<nav  aria-label="...">
+  <ul style="border-radius: 30px;" class="pagination pagination-sm bg-dark text-light">
     <li class="page-item" aria-current="page">
       <span class=""><a class="text-decoration-none mx-2" href="/">Inicio</a> » </span>
     </li> 
@@ -19,7 +19,7 @@
 
 
       
-      <img id="page_img" src="{{note.img_link}}" class="card-img-top mx-auto mt-4 mb-2" alt="..."/>
+      <img id="page_img" src="{{note.img_link}}" class="card-img-top mx-auto mt-0 mb-2" alt="..."/>
       <div class="card-body">
         <h4 id="note-title" class="card-title mx-auto">{{note.title}}</h4>
         <p style="white-space: pre-line;" id="description" class="card-text">
@@ -29,7 +29,9 @@
 
         {{!-- Descrição --}}
 
-<div class="d-inline-flex">
+
+      </div>
+      <div id="card-b" style="background-color: {{note.cor}}" class="d-inline-flex">
         {{!-- Logo de usuário --}}
         <a class=" d-flex align-items-center hidden-arrow " href="#" id=""role="button">
         
@@ -37,10 +39,9 @@
         />
       </a>
 
-        <small>
-          <span>Por <span id="flipboard-author author-single" class="author"><a href="#" title="Posts de Pedro Knoth" rel="author">Administrator</a></span><br>{{note.date}}</span></small>
+        <small style="width: 12rem;">
+          <span>Por <span id="flipboard-author author-single" class="author"><a class="text-light" href="#" title="Posts de {{note.autor}}" rel="author">{{note.autor}}</a></span><br>{{note.date}}</span></small>
 
 </div>
-      </div>
       </div>
   </div>

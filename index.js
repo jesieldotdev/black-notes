@@ -2,13 +2,16 @@ const express = require('express')
 const app = express()
 const hbs = require('express-handlebars')
 const path = require('path')
+const admin = require('./routes/admin')
 require('./models/Note')
+const dataHora = require('./public/js/datahora')
 const mongoose = require('mongoose')
 const Note = mongoose.model('notes')
 const session = require('express-session')
 const flash = require('connect-flash')
 const db = require('./config/db')
 
+console.log(dataHora)
 
 //	Configurações
 	// Body Parser
@@ -50,154 +53,9 @@ app.use((req, res, next) => {
 	next()
 })
 
+//	Rotas
+	app.use('/', admin)
 
-//	Rota Principal
-	app.get('/', (req, res) => {
-		Note.find().lean().sort({_id: -1}).then((notes) => {
-		res.render('home', {notes: notes})
-	}).catch((err) => {
-		res.send('Houve um erro: '+err)
-	})
-	})
-
-// Salvar Nota
-	app.post('/salvar_nota', (req, res) => {
-		// Tratamento de Entradas
-		if(req.body.img_link == undefined || req.body.img_link == ''){
-			var img = 'https://source.unsplash.com/collection/2250268/800x900'
-		}else {
-		 	var img = req.body.img_link
-		}
-
-		// Hora
-		function time(){
-			var agora = new Date()
-			var hora = agora.getHours()
-			var min = agora.getMinutes()
-			var s = agora.getSeconds()
-			var clock = {}
-			
-			if (hora  <= 9){
-				clock.textContent = `0${hora}:${min}:${s}`
-				if (min <= 9){
-					clock.textContent = `0${hora}:0${min}`}
-					
-			}else {clock.textContent = `${hora}:0${min}`
-			if (min <= 9){
-					clock.textContent = `${hora}:0${min}`
-				}else{
-					clock.textContent = `${hora}:${min}`
-				}
-			}
-			return clock.textContent
-		}
-
-		setInterval(time, 1000)
-
-		// console.log(time())
-
-		// Data
-		var agora = new Date()
-		var dia = agora.getDate()
-		var mes = agora.getMonth()
-		var ano = agora.getFullYear()
-		
-
-		if (dia <= 9){
-			dia = '0'+ dia
-		}
-		
-		if(mes <= 9){
-			mes = '0' +mes
-		}
-		
-
-		var dataText = `${dia}/${mes}/${ano}`
-		// console.log(dataText)
-
-		let datahora = `${dataText} às ${time()}`
-		console.log(datahora)
-		
-
-
-		const novaNota = {
-			title: req.body.note_title,
-			note: req.body.note,
-			img_link: img,
-			date: datahora
-		}
-		// console.log(img)
-
-		// Salvando dados no Mongo
-		new Note(novaNota).save().then(() => {
-			req.flash('success_msg', `Nota Salva com Sucesso!`)
-			res.redirect('/')
-		}).catch((err) => {
-			req.flash('error_msg', `Houve um erro ao salvar a nota! : ` +err)
-			res.redirect('/')
-		})
-	})
-
-//	Apagar Nota
-	app.all('/deletar', (req, res) => {
-		Note.deleteOne({_id: req.body.id}).then((nota) => {
-			console.log(nota.title)
-			req.flash('success_msg', 'Nota deletada.')
-			res.redirect('/')
-		}).catch((err) => {
-			req.flash('error_msg', 'Não foi possivel apagar a nota.')
-			res.redirect('/')
-		})
-	})
-
-// Rota Note Page
-	app.get('/note/:id', (req, res) => {
-		Note.findOne({_id: req.params.id}).lean().then((note) => {
-			res.render('notepage', {note: note})
-		}).catch((err) => {
-			req.flash('error_msg', 'Erro ao abrir a nota: ' +err)
-			res.redirect('/')
-		})
-	})
-
-
-// Nova Rota
-	app.get('/login', (req, res) => {
-		res.render('login')
-	})
-
-// Page Editar Nota
-	app.get('/edit/:id', (req, res) => {
-		Note.findOne({_id: req.params.id}).lean().then((note) => {
-			res.render('note-edit', {note: note})
-		}).catch((err) => {
-			res.flash('error_msg', 'Algo deu errado!')
-		})
-	})
-
-//	Rota de Edição Nota
-	app.post('/notas/editar', (req, res) => {
-		Note.findOne({_id: req.body.id}).lean().then((note) => {
-
-			const editarNota = {
-			title: req.body.note_title,
-			note: req.body.note,
-			img_link: req.body.img_link
-		}
-
-			new Note(editarNota).save().then(() => {
-				req.flash('success_msg', 'Nota editada com sucesso')
-				res.redirect('/')
-			}).catch((err) => {
-				req.flash('error_msg', 'Não foi possivel salvar a edição: ' +err)
-				res.redirect('/')
-			})
-
-		}).catch((err) => {
-			req.flash('error_msg', 'Houve um erro ao editar a nota: ' +err)
-			res.redirect('/')
-		})
-	})
 
 
 const PORT = process.env.PORT || 8089

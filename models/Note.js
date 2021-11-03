@@ -19,6 +19,14 @@ const Note = new Schema({
 	date: {
 		type: String,
 		default: Date()
+	},
+	cor: {
+		type: String,
+		default: "#282828"
+	},
+	autor: {
+		type: String,
+		default: "Desconhecido"
 	}
 })
 

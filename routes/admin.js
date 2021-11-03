@@ -1,0 +1,108 @@
+const express = require('express')
+const router = express.Router()
+mongoose = require('mongoose')
+require('../models/Note')
+const datahora = require('../public/js/datahora')
+Note = mongoose.model('notes')
+
+
+//	Rota Principal
+	router.get('/', (req, res) => {
+		Note.find().lean().sort({_id: -1}).then((notes) => {
+		res.render('home', {notes: notes})
+	}).catch((err) => {
+		res.send('Houve um erro: '+err)
+	})
+	})
+
+// Salvar Nota
+	router.post('/salvar_nota', (req, res) => {
+		// Tratamento de Entradas
+		if(req.body.img_link == undefined || req.body.img_link == ''){
+			var img = 'https://source.unsplash.com/collection/2250268/800x900'
+		}else {
+		 	var img = req.body.img_link
+		}
+
+		const novaNota = {
+			title: req.body.note_title,
+			note: req.body.note,
+			img_link: img,
+			date: datahora,
+			cor: req.body.ColorInput,
+			autor: req.body.autor
+		}
+		// console.log(img)
+
+		// Salvando dados no Mongo
+		new Note(novaNota).save().then(() => {
+			req.flash('success_msg', `Nota Salva com Sucesso!`)
+			res.redirect('/')
+		}).catch((err) => {
+			req.flash('error_msg', `Houve um erro ao salvar a nota! : ` +err)
+			res.redirect('/')
+		})
+	})
+
+//	Apagar Nota
+	router.all('/deletar', (req, res) => {
+		Note.deleteOne({_id: req.body.id}).then((nota) => {
+			console.log(nota.title)
+			req.flash('success_msg', 'Nota deletada.')
+			res.redirect('/')
+		}).catch((err) => {
+			req.flash('error_msg', 'Não foi possivel apagar a nota.')
+			res.redirect('/')
+		})
+	})
+
+// Rota Note Page
+	router.get('/note/:id', (req, res) => {
+		Note.findOne({_id: req.params.id}).lean().then((note) => {
+			res.render('notepage', {note: note})
+		}).catch((err) => {
+			req.flash('error_msg', 'Erro ao abrir a nota: ' +err)
+			res.redirect('/')
+		})
+	})
+
+
+// Nova Rota
+	router.get('/login', (req, res) => {
+		res.render('login')
+	})
+
+// Page Editar Nota
+	router.get('/edit/:id', (req, res) => {
+		Note.findOne({_id: req.params.id}).lean().then((note) => {
+			res.render('note-edit', {note: note})
+		}).catch((err) => {
+			res.flash('error_msg', 'Algo deu errado!')
+		})
+	})
+
+//	Rota de Edição Nota
+	router.post('/notas/editar', (req, res) => {
+		Note.findOne({_id: req.body.id}).lean().then((note) => {
+
+			const editarNota = {
+			title: req.body.note_title,
+			note: req.body.note,
+			img_link: req.body.img_link
+		}
+
+			new Note(editarNota).save().then(() => {
+				req.flash('success_msg', 'Nota editada com sucesso')
+				res.redirect('/')
+			}).catch((err) => {
+				req.flash('error_msg', 'Não foi possivel salvar a edição: ' +err)
+				res.redirect('/')
+			})
+
+		}).catch((err) => {
+			req.flash('error_msg', 'Houve um erro ao editar a nota: ' +err)
+			res.redirect('/')
+		})
+	})
+
+module.exports = router
