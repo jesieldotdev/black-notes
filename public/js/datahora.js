@@ -7,7 +7,7 @@
 			var clock = {}
 			
 			if (hora  <= 9){
-				clock.textContent = `0${hora}:${min}:${s}`
+				clock.textContent = `0${hora}:${min}`
 				if (min <= 9){
 					clock.textContent = `0${hora}:0${min}`}
 					

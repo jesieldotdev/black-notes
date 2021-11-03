@@ -39,7 +39,7 @@ Note = mongoose.model('notes')
 			req.flash('success_msg', `Nota Salva com Sucesso!`)
 			res.redirect('/')
 		}).catch((err) => {
-			req.flash('error_msg', `Houve um erro ao salvar a nota! : ` +err)
+			req.flash('error_msg', `Houve um erro ao salvar a nota! : `)
 			res.redirect('/')
 		})
 	})
@@ -67,7 +67,7 @@ Note = mongoose.model('notes')
 	})
 
 
-// Nova Rota
+// Login
 	router.get('/login', (req, res) => {
 		res.render('login')
 	})
@@ -85,10 +85,20 @@ Note = mongoose.model('notes')
 	router.post('/notas/editar', (req, res) => {
 		Note.findOne({_id: req.body.id}).lean().then((note) => {
 
+		// Tratamento de Entradas
+		if(req.body.img_link == undefined || req.body.img_link == ''){
+			var img = 'https://source.unsplash.com/collection/2250268/800x900'
+		}else {
+		 	var img = req.body.img_link
+		}
+
 			const editarNota = {
 			title: req.body.note_title,
 			note: req.body.note,
-			img_link: req.body.img_link
+			img_link: img,
+			date: datahora,
+			cor: req.body.ColorInput,
+			autor: req.body.autor
 		}
 
 			new Note(editarNota).save().then(() => {
