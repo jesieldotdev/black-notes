@@ -13,7 +13,6 @@
         <p id="description" class="card-text">
           {{note}}
         </p>
-        <small>{{date}}</small>
       </div>
 
       {{!-- Descrição --}}
@@ -28,19 +27,10 @@
         <small style="width: 12rem;">
           <span>Por <span id="flipboard-author author-single" class="author"><a class="text-light" href="#" title="Posts de {{note.autor}}" rel="author">{{autor}}</a></span><br>{{date}}</span></small>
 
-<!-- Buttons Group -->
-      <!-- <div class=''> -->
-
-        <!-- Botão Compartilhar Nota -->
-        <!-- {{!-- <form method="POST" action="/note" class="mx-auto "> --}}
-          <input type="hidden" name="id" value='{{_id}}'>
-           <a href="note/{{_id}}"><button class="btn btn-dark btn-floating mt-2 " value="" name=""><i class="fas fa-share"></i></button></a>
-        {{!-- </form> --}} -->
-
         <!-- Botão Excluir Nota -->
         <form method="POST" action="/deletar" class=" mx-auto">
           <input type="hidden" name="id" value='{{_id}}'>
-           <button style="background-color: transparent;" type="submit" class="btn btn-dark btn-floating mt-2 " value="" name=""><i class="fas fa-trash"></i></button>
+           <button id="btn-excluir" type="submit" class="btn btn-dark btn-floating mt-2 " value="" name=""><i class="fas fa-trash"></i></button>
         </form>
 
       {{>_dropdownmenu}}

@@ -40,10 +40,13 @@ console.log(dataHora)
 
 	//	Sessão
 	app.use(session({
-		secret: 'todo',
-		resave: true,
-		saveUnitialized: true
-	}))
+		name : 'codeil',
+    	secret : 'something',
+    	resave :false,
+    	saveUninitialized: true,
+    	cookie : {
+            maxAge:(1000 * 60 * 100)
+	}}))
 	app.use(flash())
 
 //	Middleware
