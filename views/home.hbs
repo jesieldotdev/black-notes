@@ -16,10 +16,20 @@
         <small>{{date}}</small>
       </div>
 
+      {{!-- Descrição --}}
+      <div id="card-b" style="background-color: {{cor}}" class="d-inline-flex">
+        {{!-- Logo de usuário --}}
+        <a class=" d-flex align-items-center hidden-arrow " href="#" id=""role="button">
+        
+        <img src="https://lh3.googleusercontent.com/ogw/ADea4I4Yn3_jU-L3L2d2cihQmv7GY_RPPKfWoqDNiKWjNA=s32-c-mo" class="rounded-circle mx-2" height="40" alt=""
+        />
+      </a>
 
+        <small style="width: 12rem;">
+          <span>Por <span id="flipboard-author author-single" class="author"><a class="text-light" href="#" title="Posts de {{note.autor}}" rel="author">{{autor}}</a></span><br>{{date}}</span></small>
 
-    <!-- Buttons Group -->
-      <div class=''>
+<!-- Buttons Group -->
+      <!-- <div class=''> -->
 
         <!-- Botão Compartilhar Nota -->
         <!-- {{!-- <form method="POST" action="/note" class="mx-auto "> --}}
@@ -30,11 +40,14 @@
         <!-- Botão Excluir Nota -->
         <form method="POST" action="/deletar" class=" mx-auto">
           <input type="hidden" name="id" value='{{_id}}'>
-           <button type="submit" class="btn btn-dark btn-floating mt-2 " value="" name=""><i class="fas fa-trash"></i></button>
+           <button style="background-color: transparent;" type="submit" class="btn btn-dark btn-floating mt-2 " value="" name=""><i class="fas fa-trash"></i></button>
         </form>
 
       {{>_dropdownmenu}}
-      </div>
+      <!-- </div> -->
+
+</div>
+    
 
 
   </div>
