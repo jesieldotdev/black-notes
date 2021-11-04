@@ -19,7 +19,7 @@ Note = mongoose.model('notes')
 	router.post('/salvar_nota', (req, res) => {
 		// Tratamento de Entradas
 		if(req.body.img_link == undefined || req.body.img_link == ''){
-			var img = 'https://source.unsplash.com/collection/2250268/800x900'
+			var img = 'img/anime-1.png'
 		}else {
 		 	var img = req.body.img_link
 		}

@@ -1,6 +1,6 @@
 {
-  "name": "to-do",
-  "version": "1.0.0",
+  "name": "black-notes",
+  "version": "2.0.1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,5 +25,6 @@
   "bugs": {
     "url": "https://github.com/jesiel364/todo-app/issues"
   },
-  "homepage": "https://github.com/jesiel364/todo-app#readme"
+  "homepage": "https://github.com/jesiel364/todo-app#readme",
+  "devDependencies": {}
 }

@@ -14,7 +14,7 @@ const Note = new Schema({
 	img_link: {
 		type: String,
 		required: false,
-		default: "https://source.unsplash.com/collection/2250268/800x900"
+		default: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80"
 	},
 	date: {
 		type: String,
