@@ -9,16 +9,16 @@
     <i class="fas fa-ellipsis-v"></i>
   </button>
 
-  <ul class="dropdown-menu">
+  <ul class="dropdown-menu bg-dark text-dark">
     
     <!-- Botão Excluir Nota -->
         <form method="POST" action="/deletar" class=" mx-auto">
           <input type="hidden" name="id" value='{{_id}}'>
-           <button type="submit" class="btn btn-block" value="" name="">Excluir</button>
+           <button type="submit" class="btn btn-block text-light" value="" name="">Excluir</button>
         </form>
     
-    <li><a class="dropdown-item" href="/edit/{{_id}}">Editar</a></li>
-    <li><hr class="dropdown-divider" /></li>
-    <li><a class="dropdown-item" href="#">Compartilhar</a></li>
+    <li><a class="dropdown-item text-light" href="/edit/{{_id}}">Editar</a></li>
+    <li><hr class="dropdown-divider text-light" /></li>
+    <li><a class="dropdown-item text-light" href="#">Compartilhar</a></li>
   </ul>
 </form>
