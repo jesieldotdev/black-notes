@@ -1,10 +1,15 @@
 {{>_novanota}}
 
 
+
 <!-- Card note -->
 <div  class="row row-cols-1 row-cols-md-3 g-4 mt-4 shadow-lg rounded border-radius: 30px;">
+  {{>_helpnote}}
   {{#each notes}}
   <div class="col">
+
+    
+    
     <div id="card-note" style=background-color: {{cor}} name="id" class="card bg-dark text-light border-0">
       
       <a href="/note/{{_id}}"><img id="capa" src="{{img_link}}" class="card-img-top" alt="..."/></a>
@@ -44,6 +49,7 @@
     </div>
 
   {{else}}
+  {{>_helpnote}}
   {{/each}}
 
 </div>

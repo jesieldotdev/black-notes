@@ -1,0 +1,40 @@
+  <!-- Card Inicio de Ajuda -->
+<div class="col">
+<div id="card-note" style=background-color: {{cor}} name="id" class="card bg-dark text-light border-0">
+      
+      <a href="/ajuda"><img id="capa" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRATOjE0Vez1zl5GH-gbJqoSgfAr1kIWswMDw&usqp=CAU" class="card-img-top" alt="..."/></a>
+      <div class="card-body">
+        <h4 id="note-title" class="card-title">Aqui está uma lista do que você pode fazer com o Black Notes</h4>
+        <p id="description" class="card-text">
+          * Salvar notas sem a criação de uma conta. Todas as notas serão públicas.
+          Registre uma conta gratuita e salve as notas como "Pública" ou "Privada".
+        </p>
+      </div>
+
+      {{!-- Descrição --}}
+      <div id="card-b" style="background-color: #76b852" class="d-inline-flex">
+        {{!-- Logo de usuário --}}
+        <a class=" d-flex align-items-center hidden-arrow " href="#" id=""role="button">
+        
+        <img src="favicon/android-chrome-192x192.png" class="rounded-circle mx-2" height="40" alt=""
+        />
+      </a>
+
+        <small style="width: 12rem;">
+          <span>Por <span id="flipboard-author author-single" class="author"><a class="text-light" href="#" title="Posts de Black Notes" rel="author">Black Notes</a></span><br>04/10/2021 às 16:12</span></small>
+
+        <!-- Botão Excluir Nota -->
+        <form method="POST" action="/deletar" class=" mx-auto">
+          <input type="hidden" name="id" value='{{_id}}'>
+           <button id="btn-excluir" type="submit" class="btn btn-dark btn-floating mt-2 " value="" name=""><i class="fas fa-trash"></i></button>
+        </form>
+
+      {{>_dropdownmenu}}
+      <!-- </div> -->
+
+</div>
+    
+
+
+  </div>
+</div>
