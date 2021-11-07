@@ -10,6 +10,7 @@ const Note = mongoose.model('notes')
 const session = require('express-session')
 const flash = require('connect-flash')
 const db = require('./config/db')
+const usuarios = require('./routes/usuario')
 
 console.log(dataHora)
 
@@ -58,6 +59,7 @@ app.use((req, res, next) => {
 
 //	Rotas
 	app.use('/', admin)
+	app.use('/usuarios', usuarios)
 
 
 
