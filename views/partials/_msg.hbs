@@ -1,7 +1,30 @@
 {{#if success_msg}}
-	<div class="alert alert-success m-2">{{success_msg}}</div>
+	<div id="msg" class="alert alert-success m-2">{{success_msg}}
+
+    <!-- Fechar Mensagem -->
+    <button id="closeBT" onclick="fecharMsg()"> X </button>
+    <script type="text/javascript">
+    function fecharMsg(){
+      let container = document.getElementById('container')
+      let msg = document.getElementById('msg')
+      container.removeChild(msg)
+    }
+  </script>
+	</div>
+
 {{/if}}
 
 {{#if error_msg}}
-	<div class="alert alert-danger  m-2">{{error_msg}}</div>
+	<div id="msg" class="alert alert-danger  m-2">{{error_msg}}
+	
+	<!-- Fechar Mensagem -->
+    <button id="closeBT" onclick="fecharMsg()"> X </button>
+    <script type="text/javascript">
+    function fecharMsg(){
+      let container = document.getElementById('container')
+      let msg = document.getElementById('msg')
+      container.removeChild(msg)
+    }
+  </script>
+      </div>
 {{/if}}

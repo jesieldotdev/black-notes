@@ -1,7 +1,19 @@
 {{#each erros}}
-	<div class="alert alert-danger">
+	<div id="msg" class="alert alert-danger">
 		{{texto}}
+
+    <!-- Fechar Mensagem -->
+    <button onclick="fecharMsg()"> X </button>
+    <script type="text/javascript">
+    function fecharMsg(){
+      let container = document.getElementById('container')
+      let msg = document.getElementById('msg')
+      container.removeChild(msg)
+    }
+  </script>
 	</div>
+
+  
 
 {{else}}
 {{/each}}

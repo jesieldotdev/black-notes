@@ -34,10 +34,14 @@
 
 		if (dia <= 9){
 			dia = '0'+ dia
+		}else{
+			dia = dia
 		}
 		
 		if(mes <= 9){
 			mes = '0' +mes
+		}else{
+			mes = mes + 1
 		}
 		
 

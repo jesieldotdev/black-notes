@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 mongoose = require('mongoose')
 require('../models/Note')
-const datahora = require('../public/js/datahora')
+const dataHora = require('../public/js/datahora')
 Note = mongoose.model('notes')
 
 
@@ -19,7 +19,7 @@ Note = mongoose.model('notes')
 	router.post('/salvar_nota', (req, res) => {
 		// Tratamento de Entradas
 		if(req.body.img_link == undefined || req.body.img_link == ''){
-			var img = '/img/anime-1.png'
+			var img = 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80'
 		}else {
 		 	var img = req.body.img_link
 		}
@@ -28,7 +28,7 @@ Note = mongoose.model('notes')
 			title: req.body.note_title,
 			note: req.body.note,
 			img_link: img,
-			date: datahora,
+			date: dataHora,
 			cor: req.body.ColorInput,
 			autor: req.body.autor
 		}
@@ -39,7 +39,7 @@ Note = mongoose.model('notes')
 			req.flash('success_msg', `Nota Salva com Sucesso`)
 			res.redirect('/')
 		}).catch((err) => {
-			req.flash('error_msg', `Houve um erro ao salvar a nota! : `)
+			req.flash('error_msg', `Houve um erro ao salvar a nota!`)
 			res.redirect('/')
 		})
 	})
