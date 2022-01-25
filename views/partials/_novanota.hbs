@@ -1,5 +1,5 @@
 <!-- Criar Nota -->
-<div style="" id="pai" class="card mx-auto shadow p-3 bg-white">
+<div style="" id="pai" class="card mx-auto shadow p-3">
 	<div id="novaNota" class="card-body">
 		<div class="mb-1">
 
@@ -11,16 +11,16 @@
       
       >
         
-              <h5 style="color: white;"><i style='color: white;' class="fas fa-plus fa-2x"> </i> Criar uma nota</h5>
+              <h5><i class="fas fa-plus fa-2x"> </i> Criar uma nota</h5>
     
       </a>
 
   <!-- Collapsed content -->
   <div class="collapse mt-3" id="noteEdit">
     <form action="/salvar_nota" method="POST">
-      <input type="text" class="form-control shadow-lg rounded" id="note_title" name="note_title" placeholder="Título">
+      <input type="text" class="form-control  " id="note_title" name="note_title" placeholder="Título">
 
-      <textarea class="form-control mt-1 mb-2 shadow-lg rounded mt-2" id="note" name='note' rows="3" placeholder="Nota"></textarea>
+      <textarea class="form-control  shadow-lg  " id="note" name='note' rows="6" placeholder="Nota"></textarea>
 
       <!-- Adicionar Capa -->
     <!-- Botão gatilho collapse -->
@@ -66,9 +66,9 @@
       </div>
 
       <div class="ml-5">
-        <button  type="submit" class="btn btn-dark  mt-2 sm-4 mx-auto shadow-lg rounded" value="" name="">Salvar <!-- <i class="fas fa-save"></i> --></button>
+        <button id="bt-salvar"  type="submit" class="btn btn-dark mt-2 sm-4 mx-auto shadow-lg rounded" value="" name="">Salvar <!-- <i class="fas fa-save"></i> --></button>
       </form>
-        <button type="link" class="btn btn-light text-dark  mt-2 sm-4 mx-auto shadow-lg rounded"><a style="font-family: arial, sans-serif;" class="text-decoration-none text-dark" href="/">Descartar <!-- <i class="fas fa-trash"></i> --></a></button>
+        <button id="bt-descartar" type="link" class="btn btn-white text-dark  mt-2 sm-4 mx-auto shadow-lg rounded"><a style="font-family: arial, sans-serif;" class="text-decoration-none text-dark" href="/">Descartar <!-- <i class="fas fa-trash"></i> --></a></button>
       </div>
     
 	</div>
